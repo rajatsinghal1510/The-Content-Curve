@@ -15,7 +15,7 @@ export const homeContent = {
     title: "THE CREATIVE TRAJECTORY",
     paragraphs: [
       "We believe that standard layouts produce standard outcomes. In an economy built on milliseconds, your visual identity is the entire funnel. We don't just draft posts; we engineer cinematic ecosystems.",
-      "The Content Curve is a boutique creative engine headquartered in New York. We partner with wellness brands, real estate portfolios, and visionary leaders looking to transition from generic digital templates to high-fidelity, editorial authority."
+      "The Content Curve is a creative studio headquartered in Agra, India. We partner with wellness brands, real estate portfolios, and visionary leaders looking to transition from generic digital templates to high-fidelity, editorial authority."
     ],
     stats: [
       { value: "06", label: "Core Specialties" },
@@ -46,15 +46,14 @@ export const homeContent = {
     label: "Collaboration",
     title: "START A PROJECT",
     description: "Ready to turn scrolls into sales? Send us details about your project, target milestones, and creative objectives. Let's form the curve.",
-    phone: "+1 (555) 902-8821",
-    email: "hello@thecontentcurve.com",
+    phone: "+91 89791 28558",
+    email: "hello@thecontentcurve.in",
     services: [
-      "Social Media Marketing",
-      "Branding",
-      "Performance Marketing",
-      "Content Production",
+      "Social Media Strategy",
+      "Photography",
+      "Videography",
       "Website Design",
-      "Photography & Videography"
+      "Performance Marketing"
     ]
   },
   footer: {

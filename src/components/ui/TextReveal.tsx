@@ -41,18 +41,18 @@ export default function TextReveal({
   };
 
   return (
-    <Tag className={`overflow-hidden ${className}`}>
+    <Tag className={`w-full max-w-full ${className}`}>
       <motion.span
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-10%" }}
-        className="inline-block flex-wrap"
+        className="flex flex-wrap w-full"
       >
         {words.map((word, idx) => (
           <span
             key={idx}
-            className="inline-block overflow-hidden mr-[0.25em] leading-[1.2]"
+            className="inline-block flex-shrink-0 overflow-hidden mr-[0.25em] leading-[1.2]"
           >
             <motion.span
               variants={wordVariants}

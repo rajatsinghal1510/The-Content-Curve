@@ -93,7 +93,7 @@ export default function Process() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-obsidian py-32 md:py-48 px-6 md:px-12 border-b border-surface/50"
+      className="relative w-full bg-obsidian py-16 sm:py-24 md:py-48 px-4 sm:px-6 md:px-12 border-b border-surface/50 scroll-mt-12 md:scroll-mt-20"
       id="process"
     >
       {/* Grid overlay lines */}
@@ -104,25 +104,25 @@ export default function Process() {
         <div className="w-full" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start select-none">
+      <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-14 lg:gap-24 items-start select-none">
         
         {/* LEFT COLUMN: Sticky Header block (4 Columns) */}
-        <div className="col-span-1 lg:col-span-4 lg:sticky lg:top-32 lg:h-fit flex flex-col items-start">
-          <div className="flex items-center gap-4 text-xs font-mono tracking-[0.25em] text-brand-red uppercase mb-4">
-            <span className="w-6 h-[1px] bg-brand-red" />
+        <div className="col-span-1 lg:col-span-4 lg:sticky lg:top-32 lg:h-fit flex flex-col items-start min-w-0 w-full">
+          <div className="flex items-center gap-3 sm:gap-4 text-xs font-mono tracking-[0.25em] text-brand-red uppercase mb-3 sm:mb-4">
+            <span className="w-6 sm:w-8 h-[1px] bg-brand-red" />
             <span>OUR PROCESS</span>
           </div>
           <TextReveal
             text="From Idea to Impact."
             tag="h2"
-            className="text-4xl md:text-5xl font-serif text-primary-text leading-none uppercase max-w-sm"
+            className="text-3xl sm:text-4xl md:text-5xl font-serif text-primary-text leading-none uppercase max-w-sm"
           />
         </div>
 
         {/* RIGHT COLUMN: Vertical timeline with steps (8 Columns) */}
         <div 
           ref={trackRef}
-          className="col-span-1 lg:col-span-8 relative pl-10 md:pl-16 py-4"
+          className="col-span-1 lg:col-span-8 relative pl-6 sm:pl-10 md:pl-16 py-2 sm:py-4 min-w-0 w-full"
         >
           {/* Base timeline track gray line */}
           <div className="absolute left-[3px] md:left-[5px] top-0 bottom-0 w-[1px] bg-surface/30" />
@@ -139,14 +139,14 @@ export default function Process() {
             {processSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="process-step-item py-12 md:py-16 first:pt-0 last:pb-0 border-b border-surface/20 last:border-none flex flex-col gap-4 transition-all duration-500"
+                className="process-step-item py-6 sm:py-10 md:py-16 first:pt-0 last:pb-0 border-b border-surface/20 last:border-none flex flex-col gap-2.5 sm:gap-4 transition-all duration-500"
               >
                 {/* Step number and title */}
-                <div className="flex items-baseline gap-4 font-serif">
+                <div className="flex items-baseline gap-3 sm:gap-4 font-serif">
                   <span className="font-mono text-xs md:text-sm text-brand-red font-semibold select-none">
                     {step.num}
                   </span>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary-text font-medium uppercase tracking-wide">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-text font-medium uppercase tracking-wide">
                     {step.title}
                   </h3>
                 </div>
