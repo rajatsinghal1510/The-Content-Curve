@@ -130,14 +130,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </div>
       </section>
 
-      {/* Main Cover Image - Cinematic and desaturated */}
+      {/* Main Cover Image - Natural color display */}
       <section className="w-full h-[60vh] md:h-[80vh] relative overflow-hidden">
         <ImageReveal
           src={project.coverImage}
           alt={project.title}
           fill
           priority
-          className="w-full h-full grayscale hover:grayscale-0 transition-all duration-1000"
+          className="w-full h-full transition-all duration-1000"
         />
       </section>
 

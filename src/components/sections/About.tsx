@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useGlobalContext } from "@/app/providers";
 import Image from "next/image";
 import TextReveal from "../ui/TextReveal";
+import LazyVideo from "../ui/LazyVideo";
 import { attachHoverAudio } from "@/lib/videoAudio";
 
 const servicesList = [
@@ -137,7 +138,7 @@ export default function About() {
                     >
                       <div className="w-full aspect-[4/5] sm:aspect-[16/10] relative border border-surface bg-charcoal/30 overflow-hidden">
                         {service.isVideo ? (
-                          <video
+                          <LazyVideo
                             ref={(el) => {
                               if (el) attachHoverAudio(el.parentElement || el, el);
                             }}
@@ -145,16 +146,15 @@ export default function About() {
                             autoPlay
                             loop
                             playsInline
-                            preload="metadata"
-                            className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+                            className="object-cover w-full h-full transition-all duration-700"
                           />
                         ) : (
                           <Image
                             src={service.visual}
                             alt={service.name}
                             fill
-                            sizes="100vw"
-                            className={`object-cover ${service.objectPosition || "object-center"} w-full h-full grayscale hover:grayscale-0 transition-all duration-700`}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className={`object-cover ${service.objectPosition || "object-center"} w-full h-full transition-all duration-700`}
                           />
                         )}
                       </div>
@@ -181,7 +181,7 @@ export default function About() {
                 className="absolute inset-0 w-full h-full"
               >
                 {activeAsset.isVideo ? (
-                  <video
+                  <LazyVideo
                     ref={(el) => {
                       if (el) attachHoverAudio(el.parentElement || el, el);
                     }}
@@ -189,8 +189,7 @@ export default function About() {
                     autoPlay
                     loop
                     playsInline
-                    preload="metadata"
-                    className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-1000"
+                    className="object-cover w-full h-full transition-all duration-1000"
                   />
                 ) : (
                   <Image
@@ -198,7 +197,7 @@ export default function About() {
                     alt={activeAsset.name}
                     fill
                     sizes="50vw"
-                    className={`object-cover ${activeAsset.objectPosition || "object-center"} w-full h-full grayscale hover:grayscale-0 transition-all duration-1000`}
+                    className={`object-cover ${activeAsset.objectPosition || "object-center"} w-full h-full transition-all duration-1000`}
                   />
                 )}
               </motion.div>

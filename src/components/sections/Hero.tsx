@@ -6,6 +6,7 @@ import { useGlobalContext } from "@/app/providers";
 import Magnetic from "../ui/Magnetic";
 import TextReveal from "../ui/TextReveal";
 import ImageReveal from "../ui/ImageReveal";
+import LazyVideo from "../ui/LazyVideo";
 import Link from "next/link";
 import { setupContainerHoverAudio } from "@/lib/videoAudio";
 
@@ -16,6 +17,7 @@ import { setupContainerHoverAudio } from "@/lib/videoAudio";
 const HERO_ASSETS = {
   // 1. HERO VIDEO (Widescreen 16:9 cinematic loop)
   heroVideo: "/videos/hero/hero-video.mp4",
+  heroPoster: "/images/hero-video-poster.webp",
 
   // 2. FEATURED PHOTOGRAPHY (Portrait lookbook image)
   featuredPhoto: "/images/rashmeet-concert.jpg",
@@ -211,13 +213,12 @@ export default function Hero() {
 
           {/* SLOT 3: WEDDING SHOWREEL (Desktop Placement in Left Column) */}
           <div className="hidden lg:block w-[84%] aspect-[9/16] relative border border-surface bg-charcoal/20 mt-12 overflow-hidden group">
-            <video
+            <LazyVideo
               src={HERO_ASSETS.weddingShowreel}
               autoPlay
               loop
               playsInline
-              preload="metadata"
-              className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000"
+              className="object-cover w-full h-full transition-all duration-1000"
             />
           </div>
         </div>
@@ -232,15 +233,15 @@ export default function Hero() {
             
             {/* 1. DOMINANT HERO VIDEO (16:9 widescreen focal point) */}
             <div className="w-full aspect-video relative border border-surface bg-charcoal/20 overflow-hidden group">
-              <video
+              <LazyVideo
                 src={HERO_ASSETS.heroVideo}
+                poster={HERO_ASSETS.heroPoster}
+                eager
                 autoPlay
                 loop
                 playsInline
-                preload="auto"
-                className="object-cover w-full h-full grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-1000"
+                className="object-cover w-full h-full transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-black/20 pointer-events-none z-[5]" />
             </div>
 
             {/* 2. CURATED EDITORIAL PAIR (Rashmeet Photo 3:4 + Triss Reel 9:16) */}
@@ -251,44 +252,42 @@ export default function Hero() {
                   src={HERO_ASSETS.featuredPhoto}
                   alt="The Content Curve Featured Lookbook Visual"
                   fill
-                  className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000"
+                  sizes="(max-width: 768px) 50vw, 40vw"
+                  className="object-cover w-full h-full transition-all duration-1000"
                 />
               </div>
 
               {/* Triss Salon Reel */}
               <div className="w-full aspect-[3/4] relative border border-surface bg-charcoal/20 overflow-hidden group">
-                <video
+                <LazyVideo
                   src="/videos/triss-reel.mp4"
                   autoPlay
                   loop
                   playsInline
-                  preload="metadata"
-                  className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000"
+                  className="object-cover w-full h-full transition-all duration-1000"
                 />
               </div>
             </div>
 
             {/* 3. WEDDING SHOWREEL (Centered vertical showcase) */}
             <div className="w-[75%] sm:w-[65%] mx-auto aspect-[9/16] relative border border-surface bg-charcoal/20 overflow-hidden group">
-              <video
+              <LazyVideo
                 src={HERO_ASSETS.weddingShowreel}
                 autoPlay
                 loop
                 playsInline
-                preload="metadata"
-                className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000"
+                className="object-cover w-full h-full transition-all duration-1000"
               />
             </div>
 
             {/* 4. LANDSCAPE SHOWCASE (Widescreen cinematic player) */}
             <div className="w-full aspect-video relative border border-surface bg-charcoal/20 overflow-hidden group">
-              <video
+              <LazyVideo
                 src="/videos/landscape-showreel.mp4"
                 autoPlay
                 loop
                 playsInline
-                preload="metadata"
-                className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000"
+                className="object-cover w-full h-full transition-all duration-1000"
               />
             </div>
 
@@ -304,15 +303,15 @@ export default function Hero() {
               ref={videoContainerRef} 
               className="w-full aspect-video relative border border-surface bg-charcoal/20 overflow-hidden group"
             >
-              <video
+              <LazyVideo
                 src={HERO_ASSETS.heroVideo}
+                poster={HERO_ASSETS.heroPoster}
+                eager
                 autoPlay
                 loop
                 playsInline
-                preload="auto"
-                className="object-cover w-full h-full grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-1000"
+                className="object-cover w-full h-full transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-black/20 pointer-events-none z-[5]" />
             </div>
 
             {/* SLOT 2: FEATURED PHOTOGRAPHY (Portrait 3:4 lookbook frame) */}
@@ -324,7 +323,8 @@ export default function Hero() {
                 src={HERO_ASSETS.featuredPhoto}
                 alt="The Content Curve Featured Lookbook Visual"
                 fill
-                className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000"
+                sizes="(max-width: 1200px) 45vw, 35vw"
+                className="object-cover w-full h-full transition-all duration-1000"
               />
             </div>
 
@@ -333,13 +333,12 @@ export default function Hero() {
               ref={socialContainerRef} 
               className="w-[60%] aspect-[9/16] relative border border-surface bg-charcoal/20 ml-auto -mt-32 md:-mt-48 z-10 overflow-hidden group"
             >
-              <video
+              <LazyVideo
                 src="/videos/triss-reel.mp4"
                 autoPlay
                 loop
                 playsInline
-                preload="metadata"
-                className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000"
+                className="object-cover w-full h-full transition-all duration-1000"
               />
             </div>
 
@@ -349,13 +348,12 @@ export default function Hero() {
               className="w-full h-[50vh] lg:h-[56.25vw] xl:h-[720px] relative z-0"
             >
               <div className="absolute top-0 right-0 h-full w-full lg:w-[171.4%] border border-surface bg-charcoal/20 overflow-hidden group">
-                <video
+                <LazyVideo
                   src="/videos/landscape-showreel.mp4"
                   autoPlay
                   loop
                   playsInline
-                  preload="metadata"
-                  className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000"
+                  className="object-cover w-full h-full transition-all duration-1000"
                 />
               </div>
             </div>

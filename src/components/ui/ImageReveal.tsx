@@ -83,7 +83,7 @@ export default function ImageReveal({
           height={height}
           fill={fill}
           priority={priority}
-          sizes={sizes}
+          sizes={sizes || (fill ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 35vw" : undefined)}
           className={`object-cover w-full h-full ${imageClassName}`}
           loading={priority ? undefined : "lazy"}
         />

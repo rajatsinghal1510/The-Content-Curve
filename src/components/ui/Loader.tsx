@@ -12,8 +12,8 @@ export default function Loader() {
 
   useEffect(() => {
     if (counter < 100) {
-      const increment = Math.floor(Math.random() * 6) + 1;
-      const delay = Math.floor(Math.random() * 30) + 15;
+      const increment = Math.floor(Math.random() * 8) + 4;
+      const delay = Math.floor(Math.random() * 16) + 10;
       const timer = setTimeout(() => {
         setCounter((prev) => Math.min(prev + increment, 100));
       }, delay);
@@ -21,11 +21,11 @@ export default function Loader() {
     } else {
       const timer = setTimeout(() => {
         setIsFinished(true);
-        // Delay setting global loading to allow slideUp to run
+        // Delay setting global loading to allow slideUp to run smoothly
         setTimeout(() => {
           setIsLoading(false);
-        }, 800);
-      }, 500);
+        }, 650);
+      }, 250);
       return () => clearTimeout(timer);
     }
   }, [counter, setIsLoading]);
@@ -39,7 +39,7 @@ export default function Loader() {
           initial={{ y: 0 }}
           exit={{ 
             y: "-100vh",
-            transition: { duration: 0.85, ease: [0.85, 0, 0.15, 1] as const } 
+            transition: { duration: 0.65, ease: [0.85, 0, 0.15, 1] as const } 
           }}
           className="fixed inset-0 z-[10000] bg-obsidian flex flex-col justify-between p-8 md:p-16 select-none"
         >
